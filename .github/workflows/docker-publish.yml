@@ -60,8 +60,9 @@ jobs:
 
       - name: Build and push Docker image
         id: bake-image
-        uses: docker/bake-action@v4
+        uses: docker/bake-action@v6
         with:
+          source: .
           files: ./docker-bake.hcl
           pull: true
           push: true
@@ -69,5 +70,4 @@ jobs:
             *.cache-from=type=gha
             *.cache-to=type=gha
         env:
-            WORKFLOW_GITHUB_REF: ${{ github.ref }}
             WITH_LATEST_TAG: ${{ steps.repo-info.outputs.trigger-hash == steps.repo-info.outputs.latest-hash }}
