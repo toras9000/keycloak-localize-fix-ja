@@ -3,7 +3,7 @@ variable "WITH_LATEST_TAG" {
 }
 
 variable "KEYCLOAK_VERSION" {
-    default = "26.2.0"
+    default = "26.2.1"
 }
 
 group "default" {
